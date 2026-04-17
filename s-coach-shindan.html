@@ -9,42 +9,34 @@
   :root { --bg:#faf8f4; --text:#2c2416; --accent:#c8773a; --accent-light:#f0e0cc; --muted:#8a7a68; --card:#ffffff; --border:#e8ddd0; }
   * { margin:0; padding:0; box-sizing:border-box; }
   body { font-family:'Noto Sans JP',sans-serif; background:var(--bg); color:var(--text); min-height:100vh; }
-
   .header { background:var(--text); color:var(--bg); text-align:center; padding:40px 20px 32px; }
   .header-sub { font-size:12px; letter-spacing:3px; color:var(--accent); margin-bottom:10px; font-weight:500; }
   .header-philosophy { font-size:13px; color:#c8b89a; margin-bottom:16px; }
   .header h1 { font-family:'Noto Serif JP',serif; font-size:clamp(20px,5vw,30px); font-weight:700; line-height:1.6; margin-bottom:12px; }
   .header p { font-size:13px; color:#c8b89a; line-height:1.8; max-width:480px; margin:0 auto; }
-
   .container { max-width:560px; margin:0 auto; padding:32px 16px 60px; }
   .screen { display:none; }
   .screen.active { display:block; animation:fadeIn 0.4s ease; }
   @keyframes fadeIn { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
-
   .intro-card { background:var(--card); border-radius:16px; padding:32px 24px; border:1px solid var(--border); margin-bottom:16px; }
   .intro-card h2 { font-family:'Noto Serif JP',serif; font-size:18px; margin-bottom:16px; line-height:1.6; }
   .intro-card p { font-size:14px; line-height:1.9; color:var(--muted); margin-bottom:12px; }
   .categories-preview { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:20px 0; }
   .cat-item { background:var(--accent-light); border-radius:8px; padding:10px 12px; font-size:12px; font-weight:500; color:var(--accent); display:flex; align-items:center; gap:6px; }
-
   .notice-card { background:var(--card); border-radius:16px; padding:20px 24px; border:1px solid var(--border); margin-bottom:24px; border-left:4px solid var(--accent); }
   .notice-card p { font-size:13px; line-height:1.9; color:var(--muted); }
   .notice-card strong { color:var(--text); }
-
   .btn-primary { width:100%; background:var(--accent); color:white; border:none; border-radius:12px; padding:16px; font-size:15px; font-weight:500; font-family:'Noto Sans JP',sans-serif; cursor:pointer; transition:all 0.2s; }
   .btn-primary:hover { background:#b56830; transform:translateY(-1px); box-shadow:0 4px 16px rgba(200,119,58,0.3); }
   .btn-line { width:100%; background:#06C755; color:white; border:none; border-radius:12px; padding:16px; font-size:15px; font-weight:500; font-family:'Noto Sans JP',sans-serif; cursor:pointer; transition:all 0.2s; display:flex; align-items:center; justify-content:center; gap:8px; text-decoration:none; margin-top:12px; }
   .btn-line:hover { background:#05b34d; transform:translateY(-1px); }
-
   .progress-bar { background:var(--border); border-radius:100px; height:4px; margin-bottom:28px; overflow:hidden; }
   .progress-fill { background:var(--accent); height:100%; border-radius:100px; transition:width 0.4s ease; }
-
   .q-number { font-size:11px; letter-spacing:3px; color:var(--accent); font-weight:500; margin-bottom:8px; }
   .q-card { background:var(--card); border-radius:16px; padding:28px 24px; border:1px solid var(--border); margin-bottom:24px; }
   .q-emoji { font-size:36px; margin-bottom:12px; }
   .q-title { font-family:'Noto Serif JP',serif; font-size:18px; font-weight:700; margin-bottom:8px; line-height:1.5; }
   .q-desc { font-size:13px; color:var(--muted); line-height:1.8; margin-bottom:28px; }
-
   .emoji-scale { display:flex; justify-content:space-between; gap:6px; margin-bottom:12px; }
   .emoji-btn { flex:1; display:flex; flex-direction:column; align-items:center; gap:6px; padding:14px 4px; border-radius:12px; border:2px solid var(--border); background:white; cursor:pointer; transition:all 0.2s; font-family:'Noto Sans JP',sans-serif; }
   .emoji-btn .face { font-size:28px; line-height:1; }
@@ -52,12 +44,10 @@
   .emoji-btn:hover { border-color:var(--accent); transform:translateY(-2px); }
   .emoji-btn.selected { border-color:var(--accent); background:var(--accent-light); transform:translateY(-2px); box-shadow:0 4px 12px rgba(200,119,58,0.2); }
   .emoji-btn.selected .label { color:var(--accent); font-weight:500; }
-
   .q-nav { display:flex; gap:12px; margin-top:8px; }
   .btn-back { flex:1; background:transparent; color:var(--muted); border:1.5px solid var(--border); border-radius:12px; padding:14px; font-size:14px; font-family:'Noto Sans JP',sans-serif; cursor:pointer; }
   .btn-next { flex:2; background:var(--text); color:white; border:none; border-radius:12px; padding:14px; font-size:14px; font-weight:500; font-family:'Noto Sans JP',sans-serif; cursor:pointer; transition:all 0.2s; }
   .btn-next:disabled { background:var(--border); color:var(--muted); cursor:not-allowed; }
-
   .deep-card { background:var(--card); border-radius:16px; padding:28px 24px; border:1px solid var(--border); margin-bottom:24px; }
   .deep-label { font-size:11px; letter-spacing:3px; color:var(--accent); font-weight:500; margin-bottom:12px; }
   .deep-card h3 { font-family:'Noto Serif JP',serif; font-size:17px; margin-bottom:8px; line-height:1.6; }
@@ -65,7 +55,6 @@
   .deep-textarea { width:100%; border:1.5px solid var(--border); border-radius:10px; padding:14px; font-size:14px; font-family:'Noto Sans JP',sans-serif; color:var(--text); resize:none; outline:none; line-height:1.8; min-height:100px; transition:border-color 0.2s; }
   .deep-textarea:focus { border-color:var(--accent); }
   .deep-skip { background:transparent; border:none; color:var(--muted); font-size:13px; cursor:pointer; font-family:'Noto Sans JP',sans-serif; text-decoration:underline; margin-top:12px; display:block; width:100%; text-align:center; padding:8px; }
-
   .result-header { text-align:center; margin-bottom:28px; }
   .result-header h2 { font-family:'Noto Serif JP',serif; font-size:22px; margin-bottom:8px; line-height:1.5; }
   .result-header p { font-size:13px; color:var(--muted); }
@@ -78,36 +67,28 @@
   .score-row .bar-wrap { width:90px; background:var(--border); border-radius:100px; height:6px; }
   .score-row .bar-fill { height:100%; border-radius:100px; background:var(--accent); }
   .score-row .face-result { font-size:20px; min-width:32px; text-align:right; }
-
   .comment-card { background:var(--accent-light); border-radius:16px; padding:24px; margin-bottom:16px; border-left:4px solid var(--accent); }
   .comment-title { font-size:12px; letter-spacing:2px; color:var(--accent); font-weight:500; margin-bottom:10px; }
   .comment-card p { font-size:14px; line-height:1.9; }
-
   .philosophy-card { background:var(--card); border-radius:16px; padding:20px 24px; border:1px solid var(--border); margin-bottom:20px; }
   .philosophy-card .ph-title { font-size:11px; letter-spacing:2px; color:var(--muted); margin-bottom:10px; }
   .philosophy-card p { font-size:13px; line-height:1.9; color:var(--text); }
-
   .deep-answer-card { background:var(--card); border-radius:16px; padding:20px 24px; border:1px solid var(--border); margin-bottom:20px; }
   .da-label { font-size:11px; letter-spacing:2px; color:var(--muted); margin-bottom:8px; }
   .deep-answer-card p { font-size:14px; line-height:1.8; font-style:italic; }
-
   .cta-card { background:var(--text); border-radius:16px; padding:28px 24px; text-align:center; color:white; }
   .cta-card h3 { font-family:'Noto Serif JP',serif; font-size:18px; margin-bottom:10px; line-height:1.6; }
   .cta-card p { font-size:13px; color:#c8b89a; line-height:1.8; margin-bottom:20px; }
 </style>
 </head>
 <body>
-
 <div class="header">
   <div class="header-sub">S-COACH 人生満足度診断</div>
   <div class="header-philosophy">🎡 人生は遊園地</div>
   <h1>7つの質問で、<br>あなたの人生を見える化する</h1>
   <p>乗る、乗らない、休む。全部あなたの自由。<br>まず今の自分を、一緒に見てみましょう。</p>
 </div>
-
 <div class="container">
-
-  <!-- INTRO -->
   <div class="screen active" id="screen-intro">
     <div class="intro-card">
       <h2>「なんかモヤモヤしている」<br>その正体を、一緒に見つけましょう。</h2>
@@ -129,8 +110,6 @@
     </div>
     <button class="btn-primary" onclick="startQuiz()">診断をはじめる</button>
   </div>
-
-  <!-- QUESTION -->
   <div class="screen" id="screen-question">
     <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
     <div class="q-number" id="q-number"></div>
@@ -145,8 +124,6 @@
       <button class="btn-next" id="btn-next" onclick="nextQuestion()" disabled>次へ →</button>
     </div>
   </div>
-
-  <!-- DEEP -->
   <div class="screen" id="screen-deep">
     <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
     <div class="deep-card">
@@ -158,8 +135,6 @@
     <button class="btn-primary" onclick="goToResult()">結果を見る</button>
     <button class="deep-skip" onclick="goToResult()">スキップして結果を見る</button>
   </div>
-
-  <!-- RESULT -->
   <div class="screen" id="screen-result">
     <div class="result-header">
       <h2>あなたの人生の<br>満足度マップです</h2>
@@ -189,12 +164,10 @@
       <button class="btn-primary" style="margin-top:12px;background:transparent;border:1.5px solid #5a4a38;color:#c8b89a;" onclick="resetQuiz()">もう一度診断する</button>
     </div>
   </div>
-
 </div>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
 <script>
-const questions = [
+const questions=[
   {emoji:'💰',title:'収入・お金',desc:'今の収入、資産や家計について、今の気持ちに一番近い顔を選んでください。'},
   {emoji:'💪',title:'健康・体',desc:'体の調子や生活習慣について、今の気持ちに一番近い顔を選んでください。'},
   {emoji:'💼',title:'仕事・キャリア',desc:'今の仕事内容ややりがいについて、今の気持ちに一番近い顔を選んでください。'},
@@ -203,16 +176,14 @@ const questions = [
   {emoji:'🤝',title:'対人関係・友人',desc:'友人や人間関係について、今の気持ちに一番近い顔を選んでください。'},
   {emoji:'📚',title:'学び・成長',desc:'新しいことを学んだり成長している感覚について、今の気持ちに一番近い顔を選んでください。'},
 ];
-
-const emojiScale = [
-  {face:'😞', label:'全然\n満足していない', value:1},
-  {face:'😕', label:'あまり\n満足していない', value:2},
-  {face:'😐', label:'どちらとも\nいえない', value:3},
-  {face:'🙂', label:'まあまあ\n満足している', value:4},
-  {face:'😊', label:'とても\n満足している', value:5},
+const emojiScale=[
+  {face:'😞',label:'全然\n満足していない',value:1},
+  {face:'😕',label:'あまり\n満足していない',value:2},
+  {face:'😐',label:'どちらとも\nいえない',value:3},
+  {face:'🙂',label:'まあまあ\n満足している',value:4},
+  {face:'😊',label:'とても\n満足している',value:5},
 ];
-
-const comments = {
+const comments={
   '収入・お金':{high:'お金以外の部分はとても充実していますね。「収入・お金」だけが気になっている状態です。お金の不安は、他の満足感を少しずつ削ることがあります。ここを一緒に整理してみましょう。',low:'お金のことが頭にあると、他のことも楽しみにくくなりますよね。まず「何がどう不安なのか」を言葉にするだけで、見え方が変わることがあります。'},
   '健康・体':{high:'全体的には満足できているのに、体のことが気になっているんですね。健康は他の全てのカテゴリの土台です。ここが上がると、他も連動して上がることが多いです。',low:'体が万全でないと、何をするにも少しずつ余力が削られていきますよね。無理せず、小さなことから一緒に考えましょう。'},
   '仕事・キャリア':{high:'仕事以外は充実しているんですね。だからこそ、仕事のモヤモヤが余計に目立つのかもしれません。「何が一番引っかかっているか」を一緒に整理しましょう。',low:'仕事のことが全体に影響を与えている可能性があります。仕事が変わると、気持ちも生活も大きく変わることがあります。'},
@@ -222,17 +193,9 @@ const comments = {
   '学び・成長':{high:'「このままでいいのかな」という感覚があるかもしれません。他は充実しているだけに、成長への渇望が出てきているのかもしれません。',low:'毎日の余裕がなくて、学びや成長まで手が回らない状態かもしれません。まず余裕を作ることが先決かもしれません。'},
   'default':{high:'全体的にバランスよく充実していますね。それでも何かモヤモヤがあるとしたら、言葉にしにくい小さな違和感かもしれません。一緒に探しましょう。',low:'今、いろんなことが重なって大変な時期かもしれません。でも、こうして向き合えていること自体が大きな一歩です。一緒に、どこから始めるか考えましょう。'}
 };
-
-let current=0, scores=new Array(7).fill(null), chart=null, deepAnswerText='';
-
+let current=0,scores=new Array(7).fill(null),chart=null,deepAnswerText='';
 function startQuiz(){showScreen('screen-question');renderQuestion();}
-
-function showScreen(id){
-  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  window.scrollTo(0,0);
-}
-
+function showScreen(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0);}
 function renderQuestion(){
   const q=questions[current];
   document.getElementById('q-number').textContent=`QUESTION ${current+1} / ${questions.length}`;
@@ -241,7 +204,6 @@ function renderQuestion(){
   document.getElementById('q-desc').textContent=q.desc;
   document.getElementById('progress-fill').style.width=`${(current/questions.length)*100}%`;
   document.getElementById('btn-back').style.display=current===0?'none':'block';
-
   const container=document.getElementById('emoji-scale');
   container.innerHTML='';
   emojiScale.forEach(item=>{
@@ -251,12 +213,10 @@ function renderQuestion(){
     btn.onclick=()=>selectScore(item.value);
     container.appendChild(btn);
   });
-
   const nextBtn=document.getElementById('btn-next');
   nextBtn.disabled=scores[current]===null;
   nextBtn.textContent=current===questions.length-1?'最後の質問へ →':'次へ →';
 }
-
 function selectScore(val){
   scores[current]=val;
   document.querySelectorAll('.emoji-btn').forEach(btn=>{
@@ -266,15 +226,8 @@ function selectScore(val){
   });
   document.getElementById('btn-next').disabled=false;
 }
-
-function nextQuestion(){
-  if(scores[current]===null)return;
-  if(current<questions.length-1){current++;renderQuestion();}
-  else{showDeepQuestion();}
-}
-
+function nextQuestion(){if(scores[current]===null)return;if(current<questions.length-1){current++;renderQuestion();}else{showDeepQuestion();}}
 function prevQuestion(){if(current>0){current--;renderQuestion();}}
-
 function showDeepQuestion(){
   const minVal=Math.min(...scores);
   const minIdx=scores.indexOf(minVal);
@@ -282,7 +235,6 @@ function showDeepQuestion(){
   document.getElementById('deep-question-text').textContent=`「${minCat}」が気になっているんですね。今、一番引っかかっていることを教えてもらえますか？`;
   showScreen('screen-deep');
 }
-
 function goToResult(){
   deepAnswerText=document.getElementById('deep-answer').value.trim();
   showScreen('screen-result');
@@ -293,26 +245,12 @@ function goToResult(){
   setTimeout(renderChart,300);
   sendToSpreadsheet();
 }
-
 function sendToSpreadsheet(){
-  const minVal=Math.min(...scores);
-  const minIdx=scores.indexOf(minVal);
-
-  const GAS_URL='https://script.google.com/macros/s/AKfycbyxLx-P8gqvYbdQGr7EmSKL5zuTa5mzpmId3HgHK8IH_lYJPX0DmWTcSssg8_lTesgRNw/exec';
-
-  const params=new URLSearchParams({
-    scores: scores.join(','),
-    deepAnswer: deepAnswerText||''
-  });
-
-  fetch(GAS_URL+'?'+params.toString(),{
-    method:'GET',
-    mode:'no-cors'
-  }).catch(e=>console.log('送信エラー:',e));
+  const GAS_URL='https://script.google.com/macros/s/AKfycbzkhsKB0EKHVPR-Ncw9aqHhODK2tqGiit9tEBX2XkBfoiEvOJkBDhswKLdnrwNBibORbg/exec';
+  const params=new URLSearchParams({scores:scores.join(','),deepAnswer:deepAnswerText||''});
+  fetch(GAS_URL+'?'+params.toString(),{method:'GET',mode:'no-cors'}).catch(e=>console.log('送信エラー:',e));
 }
-
 function getFace(val){return emojiScale.find(e=>e.value===val)?.face||'😐';}
-
 function renderScoreList(){
   document.getElementById('scores-list').innerHTML=questions.map((q,i)=>`
     <div class="score-row">
@@ -323,7 +261,6 @@ function renderScoreList(){
     </div>
   `).join('');
 }
-
 function renderComment(){
   const avg=scores.reduce((a,b)=>a+b,0)/scores.length;
   const minVal=Math.min(...scores);
@@ -331,99 +268,36 @@ function renderComment(){
   const minIdx=scores.indexOf(minVal);
   const minCat=questions[minIdx].title;
   let commentText='';
-
-  // オール5（全員満点）
-  if(minVal===5){
-    commentText='全てのカテゴリで高い満足度ですね。今この瞬間、人生がとても充実している状態です。この感覚を大切に。何か変化を感じた時は、いつでも話しかけてください。';
-  }
-  // オール同点（差が0）→平均で判断
+  if(minVal===5){commentText='全てのカテゴリで高い満足度ですね。今この瞬間、人生がとても充実している状態です。この感覚を大切に。何か変化を感じた時は、いつでも話しかけてください。';}
   else if(maxVal===minVal){
-    if(avg>=4){ commentText='全体的にバランスよく充実していますね。それでも何かモヤモヤがあるとしたら、言葉にしにくい小さな違和感かもしれません。一緒に探しましょう。'; }
-    else if(avg>=3){ commentText='全体的にまあまあの状態ですね。特定の問題というより、全体的にもう少し満足度を上げたい、という感覚かもしれません。一緒に考えましょう。'; }
-    else{ commentText='今、いろんなことが重なって大変な時期かもしれません。でも、こうして向き合えていること自体が大きな一歩です。一緒に、どこから始めるか考えましょう。'; }
-  }
-  // 差が2以上ある→低いカテゴリへのコメント
-  else if(maxVal-minVal>=2){
-    const cat=comments[minCat]||comments['default'];
-    commentText=cat['high'];
-  }
-  // それ以外→平均で判断
-  else{
-    const level=avg>=3?'high':'low';
-    const cat=comments[minCat]||comments['default'];
-    commentText=cat[level];
-  }
-
+    if(avg>=4){commentText='全体的にバランスよく充実していますね。それでも何かモヤモヤがあるとしたら、言葉にしにくい小さな違和感かもしれません。一緒に探しましょう。';}
+    else if(avg>=3){commentText='全体的にまあまあの状態ですね。特定の問題というより、全体的にもう少し満足度を上げたい、という感覚かもしれません。一緒に考えましょう。';}
+    else{commentText='今、いろんなことが重なって大変な時期かもしれません。でも、こうして向き合えていること自体が大きな一歩です。一緒に、どこから始めるか考えましょう。';}
+  } else if(maxVal-minVal>=2){const cat=comments[minCat]||comments['default'];commentText=cat['high'];}
+  else{const level=avg>=3?'high':'low';const cat=comments[minCat]||comments['default'];commentText=cat[level];}
   document.getElementById('comment-text').textContent=commentText;
 }
-
 function renderDeepAnswer(){
-  if(deepAnswerText){
-    document.getElementById('deep-answer-display').style.display='block';
-    document.getElementById('deep-answer-show').textContent=`「${deepAnswerText}」`;
-  }
+  if(deepAnswerText){document.getElementById('deep-answer-display').style.display='block';document.getElementById('deep-answer-show').textContent=`「${deepAnswerText}」`;}
 }
-
 function updateLineButton(){
   const faceMap={1:'😞',2:'😕',3:'😐',4:'🙂',5:'😊'};
   const minVal=Math.min(...scores);
   const minIdx=scores.indexOf(minVal);
   const minCat=questions[minIdx].title;
-
-  // LINEに送られるメッセージを組み立てる
-  let msg='【S-coach 診断結果】\n';
-  msg+='─────────────\n';
-  questions.forEach((q,i)=>{
-    msg+=`${q.emoji} ${q.title}：${faceMap[scores[i]]}（${scores[i]}点）\n`;
-  });
-  msg+='─────────────\n';
-  msg+=`気になるカテゴリ：${minCat}\n`;
-  if(deepAnswerText){
-    msg+=`\n一番引っかかっていること：\n「${deepAnswerText}」\n`;
-  }
+  let msg='【S-coach 診断結果】\n─────────────\n';
+  questions.forEach((q,i)=>{msg+=`${q.emoji} ${q.title}：${faceMap[scores[i]]}（${scores[i]}点）\n`;});
+  msg+=`─────────────\n気になるカテゴリ：${minCat}\n`;
+  if(deepAnswerText){msg+=`\n一番引っかかっていること：\n「${deepAnswerText}」\n`;}
   msg+='\nこの結果を一緒に見ながら話してみたいです。';
-
-  // LINE URLにメッセージを付加
-  const lineUrl='https://line.me/R/oaMessage/@964spgur/?'+encodeURIComponent(msg);
-  document.getElementById('line-cta-btn').href=lineUrl;
+  document.getElementById('line-cta-btn').href='https://line.me/R/oaMessage/@964spgur/?'+encodeURIComponent(msg);
 }
-
 function renderChart(){
   const ctx=document.getElementById('radar-chart').getContext('2d');
   if(chart)chart.destroy();
-  chart=new Chart(ctx,{
-    type:'radar',
-    data:{
-      labels:questions.map(q=>q.title),
-      datasets:[{
-        data:scores,
-        backgroundColor:'rgba(200,119,58,0.15)',
-        borderColor:'rgba(200,119,58,0.8)',
-        borderWidth:2,
-        pointBackgroundColor:'rgba(200,119,58,1)',
-        pointRadius:4,
-      }]
-    },
-    options:{
-      responsive:true,
-      scales:{r:{
-        min:0,max:5,
-        ticks:{stepSize:1,font:{size:10},color:'#8a7a68'},
-        grid:{color:'#e8ddd0'},
-        pointLabels:{font:{size:11,family:'Noto Sans JP'},color:'#2c2416'},
-        angleLines:{color:'#e8ddd0'},
-      }},
-      plugins:{legend:{display:false}}
-    }
-  });
+  chart=new Chart(ctx,{type:'radar',data:{labels:questions.map(q=>q.title),datasets:[{data:scores,backgroundColor:'rgba(200,119,58,0.15)',borderColor:'rgba(200,119,58,0.8)',borderWidth:2,pointBackgroundColor:'rgba(200,119,58,1)',pointRadius:4}]},options:{responsive:true,scales:{r:{min:0,max:5,ticks:{stepSize:1,font:{size:10},color:'#8a7a68'},grid:{color:'#e8ddd0'},pointLabels:{font:{size:11,family:'Noto Sans JP'},color:'#2c2416'},angleLines:{color:'#e8ddd0'}}},plugins:{legend:{display:false}}}});
 }
-
-function resetQuiz(){
-  current=0;scores=new Array(7).fill(null);deepAnswerText='';
-  document.getElementById('deep-answer').value='';
-  if(chart){chart.destroy();chart=null;}
-  showScreen('screen-intro');
-}
+function resetQuiz(){current=0;scores=new Array(7).fill(null);deepAnswerText='';document.getElementById('deep-answer').value='';if(chart){chart.destroy();chart=null;}showScreen('screen-intro');}
 </script>
 </body>
 </html>
