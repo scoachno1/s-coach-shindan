@@ -95,11 +95,11 @@
   .cta-card h3 { font-family:'Noto Serif JP',serif; font-size:18px; margin-bottom:10px; line-height:1.6; }
   .cta-card p { font-size:13px; color:#c8b89a; line-height:1.8; margin-bottom:20px; }
 
-  /* 観覧車ローディング用のスタイル */
-  @keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
+  .substack-card { background:var(--card); border-radius:16px; padding:24px; border:1px solid var(--border); margin-top:16px; text-align:center; }
+  .substack-label { font-size:11px; letter-spacing:2px; color:var(--muted); margin-bottom:10px; }
+  .substack-card p { font-size:13px; color:var(--muted); line-height:1.9; margin-bottom:16px; }
+  .btn-substack { display:block; width:100%; background:var(--bg); color:var(--text); border:1.5px solid var(--border); border-radius:12px; padding:14px; font-size:14px; font-weight:500; font-family:'Noto Sans JP',sans-serif; cursor:pointer; transition:all 0.2s; text-decoration:none; }
+  .btn-substack:hover { border-color:var(--accent); color:var(--accent); transform:translateY(-1px); }
 </style>
 </head>
 <body>
@@ -190,9 +190,17 @@
       <p>乗り物は、乗ってしまえば動き出します。怖くても、不安でも、一緒に乗りましょう。否定しません。答えを押しつけません。<br>あなたの隣で一緒に考えます。</p>
       <a id="line-cta-btn" href="https://lin.ee/NO9Hcix" class="btn-line" target="_blank">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
-        LINEで話しかけてみる
+        一人で抱えているなら、LINEへ
       </a>
       <button class="btn-primary" style="margin-top:12px;background:transparent;border:1.5px solid #5a4a38;color:#c8b89a;" onclick="resetQuiz()">もう一度診断する</button>
+    </div>
+
+    <div class="substack-card">
+      <div class="substack-label">📩 まずは読むだけでも</div>
+      <p>「このままでいいのか」と感じている人へ向けて、感情の整理や人生のモヤモヤの言語化を、メールで静かにお届けしています。</p>
+      <a href="https://scoachno1.substack.com" class="btn-substack" target="_blank">
+        無料で受け取る（Substack）
+      </a>
     </div>
   </div>
 
@@ -318,75 +326,6 @@ function renderComment(){
   const maxVal=Math.max(...scores);
   const minIdx=scores.indexOf(minVal);
   const minCat=questions[minIdx].title;
-
-  // AI化対応：観覧車ローディングを表示
-  const commentCard = document.querySelector('.comment-card');
-  const titleEl = commentCard.querySelector('.comment-title');
-  const textEl = document.getElementById('comment-text');
-  
-  // ローディング表示
-  titleEl.innerHTML = '🎡 あなただけへのメッセージを生成中...';
-  textEl.innerHTML = `
-    <div style="display:flex;align-items:center;gap:8px;color:#8a7a68;">
-      <div style="animation:spin 2s linear infinite;">🎡</div>
-      <span>S-coachがあなたのために考えています...</span>
-    </div>
-  `;
-
-  // AI APIを呼び出し（GETメソッド使用）
-  callAIComment(scores, minCat, deepAnswerText)
-    .then(aiComment => {
-      // AI成功時
-      titleEl.innerHTML = '✨ あなただけへのメッセージ';
-      textEl.textContent = aiComment;
-    })
-    .catch(error => {
-      console.log('AI失敗、フォールバック:', error);
-      // フォールバック：従来のコメント
-      let commentText = getFallbackComment(avg, minVal, maxVal, minIdx, minCat);
-      titleEl.innerHTML = 'S-COACH からのひと言';
-      textEl.textContent = commentText;
-    });
-}
-
-// AI APIコール関数（GETメソッド・CORS対応済み）
-async function callAIComment(scores, minCategory, deepAnswer) {
-  try {
-    const scoresStr = scores.join(',');
-    const minScore = Math.min(...scores);
-    
-    let url = `https://script.google.com/macros/s/AKfycbzEuXbyni7Upwz_VV40QCcHkfSIZti_XLZMoxaxBspxqMIX1nX5rQfO20ofehNMCdGv2w/exec?scores=${encodeURIComponent(scoresStr)}&minCategory=${encodeURIComponent(minCategory)}&minScore=${minScore}`;
-    
-    if (deepAnswer && deepAnswer.trim()) {
-      url += `&deepAnswer=${encodeURIComponent(deepAnswer.trim())}`;
-    }
-
-    const response = await fetch(url, {
-      method: 'GET',
-      headers: {
-        'Accept': 'application/json'
-      }
-    });
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-
-    const data = await response.json();
-    
-    if (data.status === 'success' && data.comment) {
-      return data.comment;
-    } else {
-      throw new Error(data.message || 'AI応答エラー');
-    }
-  } catch (error) {
-    console.error('AI API Error:', error);
-    throw error;
-  }
-}
-
-// フォールバック用のコメント生成
-function getFallbackComment(avg, minVal, maxVal, minIdx, minCat) {
   let commentText='';
 
   // オール5（全員満点）
@@ -411,7 +350,7 @@ function getFallbackComment(avg, minVal, maxVal, minIdx, minCat) {
     commentText=cat[level];
   }
 
-  return commentText;
+  document.getElementById('comment-text').textContent=commentText;
 }
 
 function renderDeepAnswer(){
